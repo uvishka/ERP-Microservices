@@ -125,6 +125,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraduateManagementTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.GraduateManagement.Api.Tests", "Tests\GraduateManagementTests\ERP.GraduateManagement.Api.Tests\ERP.GraduateManagement.Api.Tests.csproj", "{25857429-5AF4-49DD-97D5-280F1D78DF54}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagement", "UserManagement", "{B5249361-E64D-4368-9AA5-A606F7137992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.UserManagement.Api", "UserManagement\ERP.UserManagement.Api\ERP.UserManagement.Api.csproj", "{D280482D-1BA8-497F-8FB8-D215D320825F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.UserManagement.Application", "UserManagement\ERP.UserManagement.Application\ERP.UserManagement.Application.csproj", "{3207B507-86AA-4526-89B6-84FC8FC9495B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.UserManagement.Core", "UserManagement\ERP.UserManagement.Core\ERP.UserManagement.Core.csproj", "{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.UserManagement.DataServices", "UserManagement\ERP.UserManagement.DataServices\ERP.UserManagement.DataServices.csproj", "{A2F32491-AAB5-4BBD-9910-7B03473CDE3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -319,6 +329,22 @@ Global
 		{25857429-5AF4-49DD-97D5-280F1D78DF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25857429-5AF4-49DD-97D5-280F1D78DF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25857429-5AF4-49DD-97D5-280F1D78DF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D280482D-1BA8-497F-8FB8-D215D320825F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D280482D-1BA8-497F-8FB8-D215D320825F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D280482D-1BA8-497F-8FB8-D215D320825F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D280482D-1BA8-497F-8FB8-D215D320825F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3207B507-86AA-4526-89B6-84FC8FC9495B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3207B507-86AA-4526-89B6-84FC8FC9495B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3207B507-86AA-4526-89B6-84FC8FC9495B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3207B507-86AA-4526-89B6-84FC8FC9495B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F32491-AAB5-4BBD-9910-7B03473CDE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F32491-AAB5-4BBD-9910-7B03473CDE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F32491-AAB5-4BBD-9910-7B03473CDE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F32491-AAB5-4BBD-9910-7B03473CDE3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -372,6 +398,10 @@ Global
 		{BDB05550-6217-478F-914D-1A7F748F3500} = {94B243B7-C952-49A3-BD55-C3F7FC2907E9}
 		{03DD70EF-F824-4A84-9625-E5068F342562} = {1EC4B9AA-C9DD-44C9-9A58-784D023A2BC8}
 		{25857429-5AF4-49DD-97D5-280F1D78DF54} = {03DD70EF-F824-4A84-9625-E5068F342562}
+		{D280482D-1BA8-497F-8FB8-D215D320825F} = {B5249361-E64D-4368-9AA5-A606F7137992}
+		{3207B507-86AA-4526-89B6-84FC8FC9495B} = {B5249361-E64D-4368-9AA5-A606F7137992}
+		{CB0DCBDF-83E7-4423-ADAC-81EA643EBCF2} = {B5249361-E64D-4368-9AA5-A606F7137992}
+		{A2F32491-AAB5-4BBD-9910-7B03473CDE3D} = {B5249361-E64D-4368-9AA5-A606F7137992}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFC59B45-8A1B-45B0-AA0C-9897743CD009}
