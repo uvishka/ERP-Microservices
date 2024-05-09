@@ -27,12 +27,12 @@ namespace ERP.UserManagement.Core.Entities
         public string NationalId { get; set; }
 
 
-        public Guid? AdvisorId { get; set; }
+       // public Guid? AdvisorId { get; set; }
 
         public string Department {  get; set; }
 
 
-        public virtual Lecturer? Advisor { get; set; }
+       // public virtual Lecturer? Advisor { get; set; }
 
     }
 }

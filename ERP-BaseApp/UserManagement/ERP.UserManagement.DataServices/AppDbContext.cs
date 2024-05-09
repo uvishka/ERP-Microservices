@@ -17,11 +17,11 @@ namespace ERP.UserManagement.DataServices
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Student>()
-                .HasOne(s => s.Advisor)
-                .WithMany(a => a.Advicees)
-                .HasForeignKey(s => s.AdvisorId)
-                .OnDelete(DeleteBehavior.NoAction);
+            //modelBuilder.Entity<Student>()
+            //    .HasOne(s => s.Advisor)
+            //    .WithMany(a => a.Advicees)
+            //    .HasForeignKey(s => s.AdvisorId)
+            //    .OnDelete(DeleteBehavior.NoAction);
 
 
 

@@ -8,6 +8,7 @@ using ERP.UserManagement.DataServices.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 
 //Get Connection String
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
