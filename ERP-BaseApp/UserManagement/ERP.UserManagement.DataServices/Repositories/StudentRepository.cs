@@ -40,7 +40,7 @@ namespace ERP.UserManagement.DataService.Repositories
                 result.District = entity.District;
                 result.NationalId = entity.NationalId;
                 result.Department = entity.Department;
-                result.Advisor = entity.Advisor;
+               // result.Advisor = entity.Advisor;
                 
 
                 return true;

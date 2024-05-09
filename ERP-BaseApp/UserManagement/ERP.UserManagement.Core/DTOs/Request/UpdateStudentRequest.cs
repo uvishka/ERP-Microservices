@@ -29,7 +29,9 @@ namespace ERP.UserManagement.Core.DTOs.Request
         public string NationalId { get; set; } = string.Empty;
 
         public string Department { get; set; } = string.Empty;
-        public Guid? AdvisorId { get; set; }
-        public virtual Lecturer? Advisor { get; set; }
+      //  public Guid? AdvisorId { get; set; }
+        //public virtual Lecturer? Advisor { get; set; }
+
+        
     }
 }

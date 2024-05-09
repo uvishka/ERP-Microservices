@@ -3,6 +3,7 @@ using System;
 using ERP.UserManagement.DataServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ERP.UserManagement.DataServices.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240509085940_MigrationSecond")]
+    partial class MigrationSecond
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -81,6 +84,9 @@ namespace ERP.UserManagement.DataServices.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("AdvisorId")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
@@ -104,9 +110,6 @@ namespace ERP.UserManagement.DataServices.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("LecturerId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("NationalId")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -126,16 +129,19 @@ namespace ERP.UserManagement.DataServices.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LecturerId");
+                    b.HasIndex("AdvisorId");
 
                     b.ToTable("Students");
                 });
 
             modelBuilder.Entity("ERP.UserManagement.Core.Entities.Student", b =>
                 {
-                    b.HasOne("ERP.UserManagement.Core.Entities.Lecturer", null)
+                    b.HasOne("ERP.UserManagement.Core.Entities.Lecturer", "Advisor")
                         .WithMany("Advicees")
-                        .HasForeignKey("LecturerId");
+                        .HasForeignKey("AdvisorId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Advisor");
                 });
 
             modelBuilder.Entity("ERP.UserManagement.Core.Entities.Lecturer", b =>

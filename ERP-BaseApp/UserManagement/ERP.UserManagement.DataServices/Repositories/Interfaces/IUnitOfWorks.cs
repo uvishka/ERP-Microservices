@@ -9,7 +9,7 @@ namespace ERP.UserManagement.DataServices.Repositories.Interfaces
     public interface IUnitOfWorks
     {
         public IStudentRepository Students { get; }
-      //  public ILecturerRepository Lecturers { get; }
+        public ILecturerRepository Lecturers { get; }
 
         Task<bool> CompleteAsync();
     }
