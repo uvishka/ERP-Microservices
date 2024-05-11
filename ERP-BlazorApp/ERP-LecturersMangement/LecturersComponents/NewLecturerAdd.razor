@@ -11,23 +11,23 @@
 <MudCard Class="my-custom-card">
     <MudForm Model="@model" @ref="@form" Validation="@(lecturerValidator.ValidateValue)" ValidationDelay="0">
         <MudCardContent>
-            <MudTextField @bind-Value="model.FirstName" For="@(() => model.FirstName)" Immediate="true"
+            <MudTextField @bind-Value="model.FirstName" For="@(() => model.FirstName)" Required="true"
                           Label="FirstName" />
 
-            <MudTextField @bind-Value="model.LastName" For="@(() => model.LastName)" Immediate="true"
+            <MudTextField @bind-Value="model.LastName" For="@(() => model.LastName)" Required="true"
                           Label="LastName" />
             
 
-            <MudTextField @bind-Value="model.Email" For="@(() => model.Email)" Immediate="true" Label="Email" />
+            <MudTextField @bind-Value="model.Email" For="@(() => model.Email)" Required="true" Label="Email" />
 
-            <MudTextField @bind-Value="model.Department" For="@(() => model.Department)" Immediate="true" Label="Department" />
-            <MudTextField @bind-Value="model.DoB" For="@(() => model.DoB)" Immediate="true" Label="DoB" />
+            <MudTextField @bind-Value="model.Department" For="@(() => model.Department)" Required="true" Label="Department" />
+            <MudTextField @bind-Value="model.DoB" For="@(() => model.DoB)" Required="true" Label="DoB" />
             
 
-            <MudTextField @bind-Value="model.NationalId" For="@(() => model.NationalId)" Immediate="true"
+            <MudTextField @bind-Value="model.NationalId" For="@(() => model.NationalId)" Required="true"
                           Label="NationalID" />
             
-            <MudTextField @bind-Value="model.Phone" For="@(() => model.Phone)" Immediate="true" Label="PhoneNumber(Home)" />
+            <MudTextField @bind-Value="model.Phone" For="@(() => model.Phone)" Required="true" Label="PhoneNumber(Home)" />
         </MudCardContent>
     </MudForm>
     <MudCardActions>
