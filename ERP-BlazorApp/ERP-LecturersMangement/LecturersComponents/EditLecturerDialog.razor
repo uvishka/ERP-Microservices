@@ -1,0 +1,84 @@
+﻿@using ERP_LecturersMangement.DTOs.Request
+@using FluentValidation
+@using MudBlazor
+@using System.Net.Http.Json
+@using System.Text;
+@using System.Text.Json;
+@inject ISnackbar Snackbar
+
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3 mb-n1" />
+            Edit Graduate
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudTextField @bind-Value="_lecturer.LecturerID" Label="Graduate ID" ReadOnly="true" />
+        <MudTextField @bind-Value="_lecturer.FirstName" Label="First Name" />
+        <MudTextField @bind-Value="_lecturer.LastName" Label="Last Name" />
+        <MudTextField @bind-Value="_lecturer.Email" Label="Email" />
+        <MudTextField @bind-Value="_lecturer.Phone" Label="Contact Number" />
+        <MudTextField @bind-Value="_lecturer.Department" Label="Department" />
+        <MudTextField @bind-Value="_lecturer.NationalId" Label="NationalId" />
+        <MudTextField @bind-Value="_lecturer.DoB" Label="Date Of Birth" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Error" OnClick="SaveLecturer">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code 
+{
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public Guid lecturerId { get; set; }
+
+    public EventCallback onAdded { get; set; }
+
+    private HttpClient Http = new HttpClient();
+
+    private UpdateLecturerRequest _lecturer = new UpdateLecturerRequest();
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _lecturer = await Http.GetFromJsonAsync<UpdateLecturerRequest>($"https://localhost:7055/api/LecturerManagement/{lecturerId}");
+        }
+        catch (Exception ex)
+        {
+            _lecturer = null;
+        }
+    }
+
+    private void Cancel()
+    {
+        MudDialog.Cancel();
+    }
+
+    private async void SaveLecturer()
+    {
+        var jsonModel = JsonSerializer.Serialize(_lecturer);
+        var content = new StringContent(jsonModel, Encoding.UTF8, "application/json");
+        var response = await Http.PutAsync($"https://localhost:7055/api/LecturerManagement/{lecturerId}", content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await onAdded.InvokeAsync();
+            Snackbar.Add("Lecturer Edited Successfully", MudBlazor.Severity.Success);
+            MudDialog.Close(DialogResult.Ok(_lecturer.LecturerID));
+        }
+        else
+        {
+            Snackbar.Add("Please Check Your Connection.", MudBlazor.Severity.Error);
+        }
+    }
+
+}

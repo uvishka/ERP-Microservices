@@ -55,7 +55,7 @@ namespace ERP.UserManagement.Api.Controllers
         }
 
         [HttpPut]
-        [Route("{studentId:guid}")]
+        [Route("{lecturerId:guid}")]
         public async Task<IActionResult> UpdateLecturer(Guid lecturerId, [FromBody] UpdateLecturerRequest lecturer)
         {
             if (!ModelState.IsValid)

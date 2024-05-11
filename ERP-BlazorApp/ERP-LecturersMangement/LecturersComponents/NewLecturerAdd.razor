@@ -9,7 +9,7 @@
 
 <h3>NewLecturerAdd Component</h3>
 <MudCard Class="my-custom-card">
-    <MudForm Model="@model" @ref="@form"  ValidationDelay="0">
+    <MudForm Model="@model" @ref="@form" Validation="@(lecturerValidator.ValidateValue)" ValidationDelay="0">
         <MudCardContent>
             <MudTextField @bind-Value="model.FirstName" For="@(() => model.FirstName)" Immediate="true"
                           Label="FirstName" />
@@ -36,8 +36,8 @@
                    Class="ml-auto"
                    OnClick="@(async () => await Submit())"
         
-        > ADD Lecturer
-
+        >
+            ADD Lecturer
         </MudButton>
         
     </MudCardActions>
@@ -66,24 +66,90 @@
     private HttpClient Http = new HttpClient();
     private CreateLecturerRequest model = new CreateLecturerRequest();
     private List<string> digreeList = new List<string> { "EIE", "COM" };
+    
+
+    LecturerModelValidator lecturerValidator = new LecturerModelValidator();
     MudForm form;
+
+    public class LecturerModelValidator : AbstractValidator<CreateLecturerRequest>
+    {
+        public LecturerModelValidator()
+        {
+           
+
+            RuleFor(x => x.FirstName)
+                .NotEmpty().WithMessage("First Name is Required.")
+                .MinimumLength(3)
+                .MaximumLength(20);
+
+            RuleFor(x => x.LastName)
+                .NotEmpty().WithMessage("Last Name is Required.")
+                .MinimumLength(3)
+                .MaximumLength(20);
+
+
+            RuleFor(x => x.Phone)
+                .NotEmpty().WithMessage("Contact number is required.")
+                .Matches("^[0-9]*$").WithMessage("Contact number can only contain numbers.");
+
+            RuleFor(x => x.Email)
+            .NotEmpty().WithMessage("Email Address is Required.")
+            .EmailAddress().WithMessage("Invalid Email Address Format.");
+        }
+
+        private async Task<bool> IsUniqueAsync(string email)
+        {
+            // Simulates a long running http call
+            await Task.Delay(2000);
+            return email.ToLower() != "test@test.com";
+        }
+
+        public Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (model, propertyName) =>
+        {
+            var result = await ValidateAsync(ValidationContext<CreateLecturerRequest>
+                .CreateWithOptions((CreateLecturerRequest)model, x => x.IncludeProperties(propertyName)));
+            if (result.IsValid)
+                return Array.Empty<string>();
+            return result.Errors.Select(e => e.ErrorMessage);
+        };
+    }
+
 
     private async Task Submit()
     {
-        var jsonModel = JsonSerializer.Serialize(model);
-        var content = new StringContent(jsonModel, Encoding.UTF8, "application/json");
-        var response = await Http.PostAsync("https://localhost:7055/api/LecturerManagement", content);
+       
+        await form.Validate();
+        try
+        {
+            if (form.IsValid)
+            {
+                var jsonModel = JsonSerializer.Serialize(model);
+                var content = new StringContent(jsonModel, Encoding.UTF8, "application/json");
+                var response = await Http.PostAsync("https://localhost:7055/api/LecturerManagement", content);
 
-        if (response.IsSuccessStatusCode)
-        {
-            await onAdded.InvokeAsync();
-            form.Reset();
-            Snackbar.Add("Lecturer Add Sucsessfully", MudBlazor.Severity.Success);
+                if (response.IsSuccessStatusCode)
+                {
+                    await onAdded.InvokeAsync();
+                    form.Reset();
+                    Snackbar.Add("Lecturer Add Sucsessfully", MudBlazor.Severity.Success);
+                }
+                else
+                {
+                    Snackbar.Add("Please Check Your Connection.", MudBlazor.Severity.Error);
+                }
+
+
+            }
+            else
+            {
+                Snackbar.Add("Please Check Input Fields", MudBlazor.Severity.Error);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Snackbar.Add("Please Check Your Connection.", MudBlazor.Severity.Error);
+            Snackbar.Add($"Error: {ex.Message}", MudBlazor.Severity.Error);
         }
+       
 
     }
 }
