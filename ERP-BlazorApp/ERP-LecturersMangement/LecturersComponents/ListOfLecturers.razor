@@ -1,0 +1,152 @@
+﻿@using ERP_LecturersMangement.DTOs.Respons
+@using System.Net.Http.Json
+@using MudBlazor
+@inject NavigationManager NavigationManager
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<h3>ListOfLecturers Component</h3>
+
+
+<MudTable Items="@_lecturers">
+    <HeaderContent>
+        <MudTh>Full Name</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Department</MudTh>
+        <MudTh>NationalId</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="FullName">@context.FullName</MudTd>
+            <MudTd DataLabel="Email">@context.Email</MudTd>
+            <MudTd DataLabel="Department">@context.Department</MudTd>
+            <MudTd DataLabel="NationalID">@context.NationalId</MudTd>
+            <MudTd DataLabel="">
+                <div class="button-group">
+                    
+                    
+                    <MudFab Color="Color.Warning" OnClick="@(()=>DeleteLecturer(context.LecturerID))"
+                            StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" />
+                </div>
+              
+            </MudTd>
+
+           
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager />
+        </PagerContent>
+ </MudTable>
+
+
+
+    <MudMessageBox @ref="mbox" Title="Warning" CancelText="Cancel">
+        <MessageContent>
+            Are You Sure to Delete This Lecturer!
+        </MessageContent>
+        <YesButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Delete!</MudButton>
+        </YesButton>
+    </MudMessageBox>
+
+
+
+
+    @code {
+
+    private string buttonGroupStyle = "display: flex; gap: 8px;";
+
+    MudMessageBox mbox { get; set; }
+
+    public EventCallback onDelete { get; set; }
+
+    private HttpClient Http = new HttpClient();
+
+    private List<GetLecturersResponse> _lecturers = new List<GetLecturersResponse>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _lecturers = await Http.GetFromJsonAsync<List<GetLecturersResponse>>("https://localhost:7055/api/LecturerManagement");
+        }
+        catch (Exception ex)
+        {
+            _lecturers = null;
+        }
+    }
+
+    async Task DeleteLecturer(Guid lecturerId)
+    {
+        bool? result = await mbox.Show();
+        if (result == true)
+        {
+            var response = await Http.DeleteAsync($"https://localhost:7055/api/LecturerManagement/{lecturerId}");
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Lecturer Deleted Successfully", Severity.Success);
+                _lecturers = await Http.GetFromJsonAsync<List<GetLecturersResponse>>("https://localhost:7055/api/LecturerManagement");
+                StateHasChanged();
+            }
+            else
+            {
+                Snackbar.Add("Connection error. Lecturer is not deleted.", Severity.Error);
+            }
+
+        }
+        else
+        {
+            Snackbar.Add("Graduate is Not Deleted", Severity.Info);
+        }
+
+    }
+
+    // async Task EditLecturer(Guid lecturerId)
+    // {
+    //     var parameters = new DialogParameters<EditLecturerDialog> { { x => x.lecturerId, lecturerId } };
+
+    //     var options = new DialogOptions
+    //         {
+    //             MaxWidth = MaxWidth.ExtraSmall,
+    //             FullWidth = true,
+    //             Position = DialogPosition.CenterLeft,
+    //             CloseOnEscapeKey = true,
+    //             CloseButton = true
+    //         };
+
+    //     var dialog = await DialogService.ShowAsync<EditLecturerDialog>("Save", parameters, options);
+    //     var result = await dialog.Result;
+
+    //     if (!result.Canceled)
+    //     {
+    //         _lecturers = await Http.GetFromJsonAsync<List<GetLecturersResponse>>("https://localhost:7055/api/LecturerManagement");
+    //     }
+
+
+    // }
+
+    
+
+
+    // async Task ShowLecturer(Guid lecturerId)
+    // {
+    //     var parameters = new DialogParameters<LecturerProfileDialog> { { x => x.lecturerId, lecturerId } };
+
+    //     var options = new DialogOptions
+    //         {
+    //             MaxWidth = MaxWidth.ExtraSmall,
+    //             FullWidth = true,
+    //             Position = DialogPosition.Center,
+    //             CloseOnEscapeKey = true,
+    //             CloseButton = true
+    //         };
+
+    //     var dialog = await DialogService.ShowAsync<LecturerProfileDialog>("Lecturer Profile", parameters, options);
+
+    // }
+
+
+   
+
+  
+
+  }

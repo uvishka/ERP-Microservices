@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP-GraduateManagement", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP-LabEquipmentManagement", "ERP-LabEquipmentManagement\ERP-LabEquipmentManagement.csproj", "{5D8AD24B-9F53-4CEA-8F4C-3A28E1110AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP-StudentManagement", "ERP-StudentManagement\ERP-StudentManagement.csproj", "{F6702573-87F9-43AD-BCD6-DD4AD1161687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP-StudentManagement", "ERP-StudentManagement\ERP-StudentManagement.csproj", "{F6702573-87F9-43AD-BCD6-DD4AD1161687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP-LecturersMangement", "ERP-LecturersMangement\ERP-LecturersMangement.csproj", "{D4A91BC3-E377-41D7-8D39-E2CF92273EB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{F6702573-87F9-43AD-BCD6-DD4AD1161687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6702573-87F9-43AD-BCD6-DD4AD1161687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6702573-87F9-43AD-BCD6-DD4AD1161687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A91BC3-E377-41D7-8D39-E2CF92273EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A91BC3-E377-41D7-8D39-E2CF92273EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A91BC3-E377-41D7-8D39-E2CF92273EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A91BC3-E377-41D7-8D39-E2CF92273EB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

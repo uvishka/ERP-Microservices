@@ -1,0 +1,89 @@
+﻿@using ERP_LecturersMangement.DTOs.Request
+@using MudBlazor
+@using FluentValidation
+@using System.Net.Http.Json
+@using System.Text
+@using System.Text.Json
+
+@inject ISnackbar Snackbar
+
+<h3>NewLecturerAdd Component</h3>
+<MudCard Class="my-custom-card">
+    <MudForm Model="@model" @ref="@form"  ValidationDelay="0">
+        <MudCardContent>
+            <MudTextField @bind-Value="model.FirstName" For="@(() => model.FirstName)" Immediate="true"
+                          Label="FirstName" />
+
+            <MudTextField @bind-Value="model.LastName" For="@(() => model.LastName)" Immediate="true"
+                          Label="LastName" />
+            
+
+            <MudTextField @bind-Value="model.Email" For="@(() => model.Email)" Immediate="true" Label="Email" />
+
+            <MudTextField @bind-Value="model.Department" For="@(() => model.Department)" Immediate="true" Label="Department" />
+            <MudTextField @bind-Value="model.DoB" For="@(() => model.DoB)" Immediate="true" Label="DoB" />
+            
+
+            <MudTextField @bind-Value="model.NationalId" For="@(() => model.NationalId)" Immediate="true"
+                          Label="NationalID" />
+            
+            <MudTextField @bind-Value="model.Phone" For="@(() => model.Phone)" Immediate="true" Label="PhoneNumber(Home)" />
+        </MudCardContent>
+    </MudForm>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Class="ml-auto"
+                   OnClick="@(async () => await Submit())"
+        
+        > ADD Lecturer
+
+        </MudButton>
+        
+    </MudCardActions>
+    
+</MudCard>
+<div style="margin-top: 20px;">
+</div>
+<style>
+    .my-custom-card {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f8f9fa; /* Light gray background */
+        border: 1px solid #ced4da; /* Gray border */
+    }
+</style>
+
+
+
+@code {
+
+    [Parameter]
+    public EventCallback onAdded { get; set; }
+    private HttpClient Http = new HttpClient();
+    private CreateLecturerRequest model = new CreateLecturerRequest();
+    private List<string> digreeList = new List<string> { "EIE", "COM" };
+    MudForm form;
+
+    private async Task Submit()
+    {
+        var jsonModel = JsonSerializer.Serialize(model);
+        var content = new StringContent(jsonModel, Encoding.UTF8, "application/json");
+        var response = await Http.PostAsync("https://localhost:7055/api/LecturerManagement", content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await onAdded.InvokeAsync();
+            form.Reset();
+            Snackbar.Add("Lecturer Add Sucsessfully", MudBlazor.Severity.Success);
+        }
+        else
+        {
+            Snackbar.Add("Please Check Your Connection.", MudBlazor.Severity.Error);
+        }
+
+    }
+}
