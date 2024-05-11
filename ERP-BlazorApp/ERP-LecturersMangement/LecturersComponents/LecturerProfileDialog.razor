@@ -1,0 +1,110 @@
+﻿@using ERP_LecturersMangement.DTOs.Request
+@using FluentValidation
+@using MudBlazor
+@using System.Net.Http.Json
+@using System.Text;
+@using System.Text.Json;
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Person" Class="mr-2" />
+            Lecturer Profile
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <div class="d-flex justify-content-center align-items-center mb-4">
+            <MudAvatar Color="Color.Primary" Size="Size.Large">
+                <MudIcon Icon="@Icons.Material.Filled.Person" />
+            </MudAvatar>
+        </div>
+        <div class="profile-info">
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Lecturer ID:</MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.LecturerID</MudTypography>
+            </div>
+          
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Name:</MudTypography>
+                <MudTypography Variant="Variant.Body1">@($"{_lecturer.FirstName} {_lecturer.LastName}")</MudTypography>
+            </div>
+              <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Email</MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.Email</MudTypography>
+            </div>
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Department:</MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.Department</MudTypography>
+            </div>
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Phone:</MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.Phone</MudTypography>
+            </div>
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">National ID:</MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.NationalId</MudTypography>
+            </div>
+            <div class="profile-item">
+                <MudTypography Variant="Variant.Subtitle2">Date Of Birth </MudTypography>
+                <MudTypography Variant="Variant.Body1">@_lecturer.DoB</MudTypography>
+            </div>
+           
+        </div>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Cancel">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+
+<style>
+    .profile-info {
+        width: 100%;
+        max-width: 400px; 
+        margin: 0 auto;
+    }
+
+    .profile-item {
+        margin-bottom: 16px;
+    }
+
+    .profile-item .mud-typography {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .profile-item .mud-typography:first-child {
+        font-weight: bold;
+    }
+</style>
+
+@code {
+
+	[CascadingParameter]
+	MudDialogInstance MudDialog { get; set; }
+
+	[Parameter]
+	public Guid lecturerId { get; set; }
+
+	private HttpClient Http = new HttpClient();
+
+	private UpdateLecturerRequest _lecturer = new UpdateLecturerRequest();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _lecturer = await Http.GetFromJsonAsync<UpdateLecturerRequest>($"https://localhost:7055/api/LecturerManagement/{lecturerId}");
+        }
+        catch (Exception ex)
+        {
+            _lecturer = null;
+        }
+    }
+
+    private void Cancel()
+    {
+        MudDialog.Cancel();
+    }
+
+
+}

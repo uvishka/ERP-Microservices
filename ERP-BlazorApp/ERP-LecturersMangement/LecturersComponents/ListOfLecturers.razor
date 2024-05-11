@@ -22,8 +22,10 @@
             <MudTd DataLabel="NationalID">@context.NationalId</MudTd>
             <MudTd DataLabel="">
                 <div class="button-group">
-                    
-                    
+                    <MudFab Color="Color.Secondary" OnClick="@(()=>ShowLecturer(context.LecturerID))"
+                            StartIcon="@Icons.Material.Filled.Person" Size="Size.Small" />
+                    <MudFab Color="Color.Primary" OnClick="@(() => EditLecturer(context.LecturerID))"
+                    StartIcon="@Icons.Material.Filled.Edit" Size="Size.Small" />
                     <MudFab Color="Color.Warning" OnClick="@(()=>DeleteLecturer(context.LecturerID))"
                             StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" />
                 </div>
@@ -100,49 +102,49 @@
 
     }
 
-    // async Task EditLecturer(Guid lecturerId)
-    // {
-    //     var parameters = new DialogParameters<EditLecturerDialog> { { x => x.lecturerId, lecturerId } };
+    async Task EditLecturer(Guid lecturerId)
+    {
+        var parameters = new DialogParameters<EditLecturerDialog> { { x => x.lecturerId, lecturerId } };
 
-    //     var options = new DialogOptions
-    //         {
-    //             MaxWidth = MaxWidth.ExtraSmall,
-    //             FullWidth = true,
-    //             Position = DialogPosition.CenterLeft,
-    //             CloseOnEscapeKey = true,
-    //             CloseButton = true
-    //         };
+        var options = new DialogOptions
+            {
+                MaxWidth = MaxWidth.ExtraSmall,
+                FullWidth = true,
+                Position = DialogPosition.CenterLeft,
+                CloseOnEscapeKey = true,
+                CloseButton = true
+            };
 
-    //     var dialog = await DialogService.ShowAsync<EditLecturerDialog>("Save", parameters, options);
-    //     var result = await dialog.Result;
+        var dialog = await DialogService.ShowAsync<EditLecturerDialog>("Save", parameters, options);
+        var result = await dialog.Result;
 
-    //     if (!result.Canceled)
-    //     {
-    //         _lecturers = await Http.GetFromJsonAsync<List<GetLecturersResponse>>("https://localhost:7055/api/LecturerManagement");
-    //     }
+        if (!result.Canceled)
+        {
+            _lecturers = await Http.GetFromJsonAsync<List<GetLecturersResponse>>("https://localhost:7055/api/LecturerManagement");
+        }
 
 
-    // }
+    }
 
     
 
 
-    // async Task ShowLecturer(Guid lecturerId)
-    // {
-    //     var parameters = new DialogParameters<LecturerProfileDialog> { { x => x.lecturerId, lecturerId } };
+    async Task ShowLecturer(Guid lecturerId)
+    {
+        var parameters = new DialogParameters<LecturerProfileDialog> { { x => x.lecturerId, lecturerId } };
 
-    //     var options = new DialogOptions
-    //         {
-    //             MaxWidth = MaxWidth.ExtraSmall,
-    //             FullWidth = true,
-    //             Position = DialogPosition.Center,
-    //             CloseOnEscapeKey = true,
-    //             CloseButton = true
-    //         };
+        var options = new DialogOptions
+            {
+                MaxWidth = MaxWidth.ExtraSmall,
+                FullWidth = true,
+                Position = DialogPosition.Center,
+                CloseOnEscapeKey = true,
+                CloseButton = true
+            };
 
-    //     var dialog = await DialogService.ShowAsync<LecturerProfileDialog>("Lecturer Profile", parameters, options);
+        var dialog = await DialogService.ShowAsync<LecturerProfileDialog>("Lecturer Profile", parameters, options);
 
-    // }
+    }
 
 
    
