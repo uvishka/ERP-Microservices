@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>ERP_LabScheduleManagement</RootNamespace>
   </PropertyGroup>
 
 
@@ -13,14 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.9.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.4" />
-    <PackageReference Include="MudBlazor" Version="6.19.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DTOs\Response\" />
-    <Folder Include="DTOs\Request\" />
   </ItemGroup>
 
 </Project>
