@@ -1,6 +1,6 @@
 using Microsoft.JSInterop;
 
-namespace ERP_LabScheduleManagement
+namespace ERP_StudentManagement
 {
     // This class provides an example of how JavaScript functionality can be wrapped
     // in a .NET class for easy consumption. The associated JavaScript module is
@@ -16,7 +16,7 @@ namespace ERP_LabScheduleManagement
         public ExampleJsInterop(IJSRuntime jsRuntime)
         {
             moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-                "import", "./_content/ERP_LabScheduleManagement/exampleJsInterop.js").AsTask());
+                "import", "./_content/ERP_StudentManagement/exampleJsInterop.js").AsTask());
         }
 
         public async ValueTask<string> Prompt(string message)

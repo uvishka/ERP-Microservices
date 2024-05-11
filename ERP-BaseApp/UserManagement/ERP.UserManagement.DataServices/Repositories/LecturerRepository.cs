@@ -37,7 +37,7 @@ namespace ERP.UserManagement.DataServices.Repositories
                 result.Phone = entity.Phone;
                 result.NationalId = entity.NationalId;
                 result.DoB = entity.DoB;
-                result.Advicees = entity.Advicees;
+               // result.Advicees = entity.Advicees;
 
                 return true;
 

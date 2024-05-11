@@ -43,6 +43,8 @@ namespace ERP.UserManagement.Api.Controllers
                 return BadRequest();
             }
 
+
+
             var result = _mapper.Map<Student>(student);
             await _unitOfWorks.Students.AddAsync(result);
             await _unitOfWorks.CompleteAsync();

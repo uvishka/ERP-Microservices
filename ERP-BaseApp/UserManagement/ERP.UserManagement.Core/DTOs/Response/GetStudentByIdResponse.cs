@@ -15,7 +15,7 @@ namespace ERP.UserManagement.Core.DTOs.Response
         public string LastName { get; set; } = string.Empty;
 
 
-        public string? RegistrationNumber { get; set; }
+        public string RegistrationNumber { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
 
@@ -32,7 +32,7 @@ namespace ERP.UserManagement.Core.DTOs.Response
 
         public string Department { get; set; } = string.Empty;
 
-        public Guid? AdvisorId { get; set; }
-        public virtual Lecturer? Advisor { get; set; }
+       // public Guid? AdvisorId { get; set; }
+       // public virtual Lecturer? Advisor { get; set; }
     }
 }

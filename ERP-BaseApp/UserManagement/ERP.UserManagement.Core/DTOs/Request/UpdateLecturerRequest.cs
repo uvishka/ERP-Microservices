@@ -23,6 +23,6 @@ namespace ERP.UserManagement.Core.DTOs.Request
 
         public DateTime DoB { get; set; }
 
-        public virtual ICollection<Student>? Advicees { get; set; }
+       // public virtual ICollection<Student>? Advicees { get; set; }
     }
 }
