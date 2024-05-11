@@ -17,7 +17,7 @@
                 </MudNavGroup>
             
         <MudNavGroup Title="Academic" Icon="@Icons.Material.Filled.LibraryBooks" Expanded="false">
-            <MudNavLink Href="/counter" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">Modules</MudNavLink>
+            <MudNavLink Href="/listoflecturerspage" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">list</MudNavLink>
             <MudNavLink Href="/counter" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">Evaluations</MudNavLink>
             <MudNavLink Href="/counter" Icon="@Icons.Material.Filled.Security" IconColor="Color.Inherit">Results</MudNavLink>
             <MudNavLink Href="/register" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">Requests</MudNavLink>
@@ -63,231 +63,19 @@
                 </MudNavLink>
             </MudNavGroup>
 
-            <MudNavGroup Class="text" Title="Teachers Management" Icon="@Icons.Material.Filled.Person"
+            <MudNavGroup Class="text" Title="Lecturer Management" Icon="@Icons.Material.Filled.Person"
                          IconColor="Color.Inherit" Expanded="false">
-                <MudNavLink Href="/addTeacher" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
+                <MudNavLink Href="/addnewlecturerpage" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
                     Teacher Registration
                 </MudNavLink>
 
-                <MudNavLink Href="/teachersList" Icon="@Icons.Material.Filled.School" IconColor="Color.Inherit">
-                    Teachers List
+                <MudNavLink Href="/listoflecturerspage" Icon="@Icons.Material.Filled.School" IconColor="Color.Inherit">
+                    Lecturers List
                 </MudNavLink>
 
             </MudNavGroup>
 
-            <MudNavGroup Class="text" Title="Module Management" Icon="@Icons.Material.Filled.Person"
-                         IconColor="Color.Inherit" Expanded="false">
-                <MudNavGroup Class="text" Title="DMME" Icon="@Icons.Material.Filled.Person"
-                             IconColor="Color.Inherit" Expanded="false">
-                    <MudNavGroup Class="text" Title="Semester 1" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 2" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 3" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 4" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 5" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 6" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 7" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 8" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                </MudNavGroup>
-                <MudNavGroup Class="text" Title="DEIE" Icon="@Icons.Material.Filled.Person"
-                             IconColor="Color.Inherit" Expanded="false">
-
-                    <MudNavGroup Class="text" Title="Semester 1" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 2" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 3" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 4" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 5" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 6" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 7" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 8" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                </MudNavGroup>
-                <MudNavGroup Class="text" Title="DCEE" Icon="@Icons.Material.Filled.Person"
-                             IconColor="Color.Inherit" Expanded="false">
-
-                    <MudNavGroup Class="text" Title="Semester 1" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 2" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 3" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 4" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 5" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 6" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 7" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 8" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                </MudNavGroup>
-                <MudNavGroup Class="text" Title="MENA" Icon="@Icons.Material.Filled.Person"
-                             IconColor="Color.Inherit" Expanded="false">
-
-                    <MudNavGroup Class="text" Title="Semester 1" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 2" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 3" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 4" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 5" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 6" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 7" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                    <MudNavGroup Class="text" Title="Semester 8" Icon="@Icons.Material.Filled.School"
-                                 IconColor="Color.Inherit" Expanded="false">
-                        <MudNavLink Href="/addModule" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                            Module Registraton
-                        </MudNavLink>
-                    </MudNavGroup>
-                </MudNavGroup>
-                <MudNavLink Href="/ModulesListPage" Icon="@Icons.Material.Filled.People" IconColor="Color.Inherit">
-                    Module List
-                </MudNavLink>
-            </MudNavGroup>
+           
 
 
             <MudNavLink Href="/counter" Icon="@Icons.Material.Filled.MenuBook" IconColor="Color.Inherit">

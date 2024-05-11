@@ -82,7 +82,8 @@ else
     async Task ShowGraduate(Guid graduateId)
     {
         var parameters = new DialogParameters<GraduateProfileDialog> { { x => x.graduateId, graduateId } };
-
+       
+       
         var options = new DialogOptions
             {
                 MaxWidth = MaxWidth.ExtraSmall,
@@ -93,7 +94,7 @@ else
             };
 
         var dialog = await DialogService.ShowAsync <GraduateProfileDialog> ("Graduate Profile", parameters, options);
-     
+        
     }
 
 

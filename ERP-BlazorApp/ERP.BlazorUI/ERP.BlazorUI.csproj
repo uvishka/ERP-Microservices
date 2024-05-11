@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,10 +14,13 @@
   </ItemGroup>
 
   
-  <ItemGroup>
-    <ProjectReference Include="..\ERP-StudentManagement\ERP-StudentManagement.csproj" />
-    <ProjectReference Include="..\Lib\ERP-StudentRegistration\ERP-StudentRegistration.csproj" />
-  </ItemGroup>
+  
+	<ItemGroup>
+		<ProjectReference Include="..\ERP-LecturersMangement\ERP-LecturersMangement.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ERP-StudentManagement\ERP-StudentManagement.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\ERP-GraduateManagement\ERP-GraduateManagement.csproj" />
@@ -25,6 +28,11 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\ERP-LabEquipmentManagement\ERP-LabEquipmentManagement.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+
+		<ProjectReference Include="..\Lib\ERP-StudentRegistration\ERP-StudentRegistration.csproj" />
 	</ItemGroup>
 
 
