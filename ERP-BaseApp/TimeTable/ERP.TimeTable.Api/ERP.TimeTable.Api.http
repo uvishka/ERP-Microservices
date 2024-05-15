@@ -1,0 +1,6 @@
+@ERP.TimeTable.Api_HostAddress = http://localhost:5120
+
+GET {{ERP.TimeTable.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
