@@ -12,7 +12,7 @@ using ERP.UserManagement.DataService.Repositories;
 
 namespace ERP.UserManagement.DataServices.Repositories
 {
-    public class LecturerRepository : GenericRepository<Lecturer>, ILecturerRepository
+    public class LecturerRepository : GenericRepository<Students>, ILecturerRepository
     {
         public LecturerRepository(AppDbContext context, ILogger logger) : base(context, logger)
         {
@@ -20,7 +20,7 @@ namespace ERP.UserManagement.DataServices.Repositories
         }
 
 
-        public override async Task<bool> UpdateAsync(Lecturer entity)
+        public override async Task<bool> UpdateAsync(Students entity)
         {
             try
             {
