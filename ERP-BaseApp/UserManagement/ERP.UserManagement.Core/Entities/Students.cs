@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERP.UserManagement.Core.Entities
 {
-    public class Lecturer : BaseEntity
+    public class Students : BaseEntity
     {
         //public Lecturer()
         //{

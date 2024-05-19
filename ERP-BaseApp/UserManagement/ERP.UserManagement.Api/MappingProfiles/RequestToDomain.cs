@@ -23,13 +23,13 @@ namespace ERP.StudentRegistration.Api.MappingProfiles
                 dest => dest.Status, opt => opt.MapFrom(src => 1));
 
 
-            CreateMap<CreateLecturerRequest, Lecturer>()
+            CreateMap<CreateLecturerRequest, Students>()
            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => 1))
            .ForMember(dest => dest.AddedDate, opt => opt.MapFrom(src => DateTime.UtcNow))
            .ForMember(dest => dest.UpdateDate, opt => opt.MapFrom(src => DateTime.UtcNow));
 
 
-            CreateMap<UpdateLecturerRequest, Lecturer>()
+            CreateMap<UpdateLecturerRequest, Students>()
                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.LecturerID))
                .ForMember(
                dest => dest.UpdateDate, opt => opt.MapFrom(src => DateTime.UtcNow))

@@ -16,11 +16,11 @@ public class DomainToResponse : Profile
         CreateMap<Student, GetStudentByIdResponse>()
             .ForMember(dest => dest.StudentID, opt => opt.MapFrom(src => src.Id));
 
-        CreateMap<Lecturer, GetLecturersResponse>()
+        CreateMap<Students, GetLecturersResponse>()
            .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
            .ForMember(dest => dest.LecturerID, opt => opt.MapFrom(src => src.Id));
 
-        CreateMap<Lecturer, GetLecturerByIdResponse>()
+        CreateMap<Students, GetLecturerByIdResponse>()
             .ForMember(dest => dest.LecturerId, opt => opt.MapFrom(src => src.Id));
     }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ERP.UserManagement.DataServices.Repositories.Interfaces
 {
-    public interface ILecturerRepository : IGenericRepository<Lecturer>
+    public interface ILecturerRepository : IGenericRepository<Students>
     {
     }
 }

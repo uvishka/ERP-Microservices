@@ -27,6 +27,6 @@ namespace ERP.UserManagement.DataServices
 
         }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Lecturer> Lecturers { get; set; }
+        public virtual DbSet<Students> Lecturers { get; set; }
     }
 }
